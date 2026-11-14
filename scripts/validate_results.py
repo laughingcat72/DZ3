@@ -1,4 +1,3 @@
-"""Verify result completeness, coordinate frames, counts, and identical segmentation prompts."""
 import json
 import sys
 from pathlib import Path

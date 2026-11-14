@@ -1,4 +1,3 @@
-"""Re-render layout only, using saved masks and measured times; no model inference."""
 import argparse
 import json
 import sys

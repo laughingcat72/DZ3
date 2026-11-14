@@ -1,4 +1,3 @@
-"""Extract images only, without trusting ZIP member paths or treating filenames as labels."""
 import argparse
 from pathlib import Path, PurePosixPath
 import zipfile

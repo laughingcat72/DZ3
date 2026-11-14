@@ -1,4 +1,3 @@
-"""Protect geometric comparison from silent coordinate and matching errors."""
 import sys
 import unittest
 from pathlib import Path

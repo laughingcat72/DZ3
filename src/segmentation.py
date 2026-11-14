@@ -1,4 +1,3 @@
-"""Identical box prompts for GrabCut and pretrained SAM 2.1 Tiny."""
 import argparse
 import gc
 import json
@@ -17,7 +16,7 @@ from experiment import ROOT, RESULTS, DEVICE, SEED, CONF, setup, read_rgb, resiz
 
 def clip_box(box, w, h):
     x1,y1,x2,y2=box
-    # Keep at least a 1 px known-background border for GrabCut, then give EXACTLY this box to SAM.
+
     x1,y1=max(1,int(np.floor(x1))),max(1,int(np.floor(y1)))
     x2,y2=min(w-1,int(np.ceil(x2))),min(h-1,int(np.ceil(y2)))
     if x2-x1<3 or y2-y1<3: raise ValueError('Degenerate prompt')
@@ -27,7 +26,7 @@ def clip_box(box, w, h):
 def make_prompts(sample, manual_path=None):
     predictions=json.loads((RESULTS/'predictions_fasterrcnn.json').read_text(encoding='utf-8'))
     prompts=[]
-    # Predeclared subset: every second sample; at most two highest-confidence baseline boxes.
+
     for row in sample.iloc[::2].itertuples():
         preds=[p for p in predictions if p['image_id']==row.image_id and p['variant']=='original' and p['score']>=CONF]
         for p in sorted(preds,key=lambda p:-p['score'])[:2]:
@@ -38,14 +37,14 @@ def make_prompts(sample, manual_path=None):
         for p in manual:
             assert p.get('source')=='manual_demo' and p.get('reason'), 'Manual prompts must be explicitly identified.'
         prompts.extend(manual)
-    # Sensitivity to imprecise prompts: not a separate model-quality benchmark.
+
     for p in prompts[:2]:
         b=np.array(p['box']);center=(b[:2]+b[2:])/2;half=(b[2:]-b[:2])/2
         for name,factor in [('tight_0.75',.75),('loose_1.25',1.25)]:
             q={**p,'variant':name,'box':np.r_[center-half*factor,center+half*factor].tolist()}
             prompts.append(q)
-    # Post-hoc qualitative overlap cases, kept separate from the predeclared base benchmark.
-    # RetinaNet covers the touching pair; Faster R-CNN localizes its left member.
+
+
     for model,det_id in [('retinanet',0),('fasterrcnn',4)]:
         candidates=json.loads((RESULTS/f'predictions_{model}.json').read_text(encoding='utf-8'))
         matches=[p for p in candidates if p['image_id']=='img_041' and p['variant']=='original' and p['detection_id']==det_id and p['score']>=CONF]
@@ -104,7 +103,7 @@ def segment(data_dir, checkpoint, manual_path=None, resume=False):
     if resume and (RESULTS/'tables/segmentation_runs.csv').exists():
         rows=pd.read_csv(RESULTS/'tables/segmentation_runs.csv').to_dict('records')
         previous={p['prompt_id']:p for p in json.loads((RESULTS/'segmentation_prompts.json').read_text())}
-    # Full image encoder and decoder warmup; not included in measurements.
+
     first=resize_working(read_rgb(paths[sample.iloc[0].filename]))
     with torch.inference_mode():
         predictor.set_image(first)
@@ -129,7 +128,7 @@ def segment(data_dir, checkpoint, manual_path=None, resume=False):
                     if method=='GrabCut': mask=grabcut(im,box)
                     else:
                         with torch.inference_mode():
-                            # Recompute embedding per prompt to make per-instance standalone latency explicit.
+
                             predictor.set_image(im);sync();encoded=time.perf_counter()
                             out,quality,_=predictor.predict(box=np.array(box),multimask_output=False)
                             sync();decoded=time.perf_counter()

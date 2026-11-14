@@ -1,4 +1,3 @@
-"""Run all numerical experiments. Use project root as current working directory."""
 import argparse
 import os
 from pathlib import Path

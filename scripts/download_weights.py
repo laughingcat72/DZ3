@@ -1,4 +1,3 @@
-"""Fetch original Meta checkpoint from its official Hugging Face repository."""
 import argparse
 import hashlib
 import json

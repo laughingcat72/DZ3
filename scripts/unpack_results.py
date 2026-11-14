@@ -1,4 +1,3 @@
-"""Restore saved image artifacts from independent ZIPs; no model execution."""
 from pathlib import Path
 
 def unpack_results(root):

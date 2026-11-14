@@ -1,4 +1,3 @@
-"""Reproducible, annotation-free microscopy experiments. No training is performed."""
 from __future__ import annotations
 
 import argparse
@@ -97,7 +96,7 @@ def analyse_data(data_dir):
         small = resize_working(im)
         gray = cv2.cvtColor(small, cv2.COLOR_RGB2GRAY).astype(float)
         p5, p95 = np.percentile(gray, [5, 95])
-        # Spatial illumination proxy: variability of cell medians, not a ground-truth background mask.
+
         tile_medians = [np.median(t) for stripe in np.array_split(gray, 4) for t in np.array_split(stripe, 4, axis=1)]
         rows.append(dict(image_id=f'img_{i:03d}', filename=path.name, group=category(path.name),
                          width=im.shape[1], height=im.shape[0], megapixels=im.shape[0]*im.shape[1]/1e6,
@@ -107,7 +106,7 @@ def analyse_data(data_dir):
                          sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
     df = pd.DataFrame(rows)
     df.to_csv(RESULTS / 'tables/dataset_inventory.csv', index=False)
-    # Deterministic contrast-stratified exploratory sample, selected BEFORE predictions.
+
     selected = []
     for group, n in [('multi_object_fields', 12), ('bosmina_series', 6), ('other_specimens', 6)]:
         part = df[df.group == group].sort_values(['rms_contrast', 'filename'])
@@ -145,7 +144,7 @@ def augment(im, name, image_id):
 
 
 def augmentation_gallery(sample):
-    # Both a multi-object field and a fine-structure specimen; all tested intensity levels.
+
     for row in [sample.iloc[4], sample.iloc[15], sample.iloc[-1]]:
         im = read_rgb(RESULTS / 'originals' / f'{row.image_id}.jpg')
         fig, axes = plt.subplots(3, 5, figsize=(16, 10))
@@ -158,12 +157,12 @@ def augmentation_gallery(sample):
 
 
 def inverse_boxes(boxes, variant, width, height):
-    """Map continuous xyxy edges back to the unaugmented working canvas."""
+
     b = np.asarray(boxes, dtype=float).reshape(-1,4).copy()
     if variant == 'hflip':
         b = b[:, [2,1,0,3]] * np.array([-1,1,-1,1]) + np.array([width,0,width,0])
     elif variant == 'rot90':
-        # CCW: (x,y)->(y,W-x); inverse x=W-y', y=x'.
+
         b = np.stack([width-b[:,3], b[:,0], width-b[:,1], b[:,2]], axis=1)
     return b
 
@@ -184,7 +183,7 @@ def match_stability(original, augmented, width, height):
                     retained_fraction=(0.0 if a else None), mean_matched_iou=None,
                     center_shift_diagonal=None, label_agreement=None)
     m = iou_matrix([p['box_base'] for p in a], [p['box_base'] for p in b])
-    # Lexicographic objective: maximize # eligible matches, then total IoU.
+
     valid = m >= 0.5
     objective = valid.astype(float) * (min(m.shape)+1) + np.where(valid,m,0)
     ri, ci = linear_sum_assignment(-objective)
@@ -239,7 +238,7 @@ def run_detection(data_dir, sample, model_name):
     del warm
     raw, runs, stability = [], [], []
     tasks = [(r, name) for r in sample.itertuples() for name,_ in VARIANTS]
-    random.Random(SEED).shuffle(tasks)  # Same order for both detectors; avoid intensity/time confounding.
+    random.Random(SEED).shuffle(tasks)
     by_image = {}
     for step, (row, name) in enumerate(tasks):
         im0 = resize_working(read_rgb(paths[row.filename]))
@@ -269,7 +268,7 @@ def run_detection(data_dir, sample, model_name):
         draw_detection(im,preds,f'{model_name} | {row.image_id} | {name}',
                        RESULTS/'detections'/f'{model_name}_{row.image_id}_{name}.jpg')
         if step%12==0: print(f'{model_name}: {step+1}/{len(tasks)}',flush=True)
-        # Incremental checkpoint, so an interrupted run still has verifiable completed records.
+
         if step%24==0:
             pd.DataFrame(runs).to_csv(RESULTS/'tables'/f'runs_{model_name}.csv',index=False)
     for row in sample.itertuples():

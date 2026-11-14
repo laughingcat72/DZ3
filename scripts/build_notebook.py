@@ -1,4 +1,3 @@
-"""Build a self-contained notebook with full experiment code and cached result views."""
 import ast
 from pathlib import Path
 import nbformat as nbf
@@ -86,12 +85,10 @@ code('''if RUN_EXPERIMENTS:
 display(pd.read_csv(RESULTS / 'tables/detection_four_groups.csv').round(3))
 display(pd.read_csv(RESULTS / 'tables/detection_by_augmentation.csv').round(3))
 show_figure(RESULTS / 'figures/detection_comparison.png')''')
-code('''# Show the same six baseline images for both detectors, including failures.
-for image_id in sample.image_id.iloc[::4]:
+code('''for image_id in sample.image_id.iloc[::4]:
     for model in ['retinanet','fasterrcnn']:
         show_figure(RESULTS / 'detections' / f'{model}_{image_id}_original.jpg', width=750)''')
-code('''# A noise stress test: more detections can include full-frame false regions.
-for model in ['retinanet','fasterrcnn']:
+code('''for model in ['retinanet','fasterrcnn']:
     for variant in ['original','noise_20']:
         show_figure(RESULTS / 'detections' / f'{model}_img_030_{variant}.jpg', width=750)''')
 md('''## 4. Сегментация
@@ -110,14 +107,16 @@ code('''if RUN_EXPERIMENTS:
     segment(DATA_DIR, CHECKPOINT, Path('manual_prompts.json'))
 display(pd.read_csv(RESULTS / 'tables/segmentation_summary.csv').round(3))
 display(pd.read_csv(RESULTS / 'tables/segmentation_runs.csv').round(3))
-# IoU below is agreement BETWEEN METHODS, not IoU against ground truth.
 prompts = json.loads((RESULTS / 'segmentation_prompts.json').read_text(encoding='utf-8'))
 for p in prompts:
     show_figure(RESULTS / 'segmentation' / f"{p['prompt_id']}_comparison.jpg")''')
 md('''## 5. Сравнительная таблица
 
 Четыре группы детекции и два метода сегментации: параметры, время и наблюдаемые различия. Сводка сегментации рассчитана по 22 одинаковым основным рамкам.''')
-code("display(pd.read_csv(RESULTS / 'tables/experiment_comparison.csv').round(3))")
+summary_source=(root/'scripts/make_summary.py').read_text(encoding='utf-8')
+summary_tree=ast.parse(summary_source)
+summary_function=next(n for n in summary_tree.body if isinstance(n,ast.FunctionDef) and n.name=='make_summary')
+code(ast.get_source_segment(summary_source,summary_function)+"\n\nif RUN_EXPERIMENTS:\n    make_summary(RESULTS)\n\ndisplay(pd.read_csv(RESULTS / 'tables/experiment_comparison.csv').round(3))")
 md('''## 6. Анализ результатов и выводы
 
 ### Детекция и аугментации
