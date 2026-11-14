@@ -1,0 +1,7 @@
+task,method,condition,input_pairs,median_ms,detected_boxes,parameters,observed_differences
+detection,fasterrcnn,augmented,288,111.93424999964918,1052.0,score=0.25;NMS=0.5;FP32;long_side=1024;3 repeats,Сильное размытие/шум снижают сохранность исходных рамок; поворот меняет предсказания.
+detection,fasterrcnn,original,24,112.1053500000926,96.0,score=0.25;NMS=0.5;FP32;long_side=1024;3 repeats,"Больше рамок, но встречаются фоновые области почти на весь кадр."
+detection,retinanet,augmented,288,59.29729999979827,841.0,score=0.25;NMS=0.5;FP32;long_side=1024;3 repeats,"При contrast=0.5 меньше рамок; при noise=20 больше рамок, включая ложные большие области."
+detection,retinanet,original,24,59.32579999989685,72.0,score=0.25;NMS=0.5;FP32;long_side=1024;3 repeats,Быстрее; встречаются пропуски мелких объектов и ошибочные COCO-метки.
+segmentation,GrabCut,same_22_boxes,22,2455.8680999994067,,5 iterations CPU,Чувствителен к размеру рамки; может соединять выступ с фоном и ошибаться на прозрачных краях.
+segmentation,SAM2,same_22_boxes,22,115.74974999984988,,SAM2.1 Tiny GPU;encoder+decoder;FP32,В ряде примеров лучше сохраняет форму; неверная большая рамка может выделить фон.

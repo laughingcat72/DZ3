@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "dataset_images": 189,
+  "sample_images": 24,
+  "detection_pairs": 624,
+  "segmentation_prompts": 28,
+  "mask_files": 112,
+  "manual_prompts": 0,
+  "checks": [
+    "complete pairs",
+    "nonnegative box geometry",
+    "score counts",
+    "timing medians",
+    "same prompts",
+    "binary masks",
+    "native dimensions",
+    "mask areas",
+    "method agreement"
+  ]
+}
