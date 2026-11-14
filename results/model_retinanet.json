@@ -1,0 +1,16 @@
+{
+  "model": "retinanet",
+  "weights": "RetinaNet_ResNet50_FPN_V2_Weights.COCO_V1",
+  "url": "https://download.pytorch.org/models/retinanet_resnet50_fpn_v2_coco-5905b1c5.pth",
+  "parameters": 38198935,
+  "device": "cuda",
+  "min_size": 640,
+  "max_size": 1024,
+  "internal_score_threshold": 0.05,
+  "report_threshold": 0.25,
+  "nms": 0.5,
+  "precision": "float32",
+  "batch_size": 1,
+  "warmup": 3,
+  "repeats": 3
+}

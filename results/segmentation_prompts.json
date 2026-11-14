@@ -1,0 +1,648 @@
+[
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      695,
+      500,
+      797,
+      578
+    ],
+    "detection_id": 0,
+    "confidence": 0.6738594174385071,
+    "coco_label": "apple",
+    "variant": "base",
+    "prompt_id": "prompt_000",
+    "box_requested": [
+      695.7640991210938,
+      500.9390869140625,
+      796.1813354492188,
+      577.4072265625
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      3,
+      5,
+      1021,
+      765
+    ],
+    "detection_id": 1,
+    "confidence": 0.6052122712135315,
+    "coco_label": "sink",
+    "variant": "base",
+    "prompt_id": "prompt_001",
+    "box_requested": [
+      3.5496041774749756,
+      5.058398723602295,
+      1020.7509155273438,
+      764.0684814453125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_057",
+    "source": "fasterrcnn",
+    "box": [
+      6,
+      9,
+      1023,
+      746
+    ],
+    "detection_id": 0,
+    "confidence": 0.5352194309234619,
+    "coco_label": "cake",
+    "variant": "base",
+    "prompt_id": "prompt_002",
+    "box_requested": [
+      6.989924907684326,
+      9.13348388671875,
+      1024.0,
+      745.9542846679688
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_057",
+    "source": "fasterrcnn",
+    "box": [
+      119,
+      133,
+      249,
+      259
+    ],
+    "detection_id": 1,
+    "confidence": 0.2928307354450226,
+    "coco_label": "bird",
+    "variant": "base",
+    "prompt_id": "prompt_003",
+    "box_requested": [
+      119.46365356445312,
+      133.06735229492188,
+      248.09176635742188,
+      258.3613586425781
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_061",
+    "source": "fasterrcnn",
+    "box": [
+      214,
+      342,
+      358,
+      455
+    ],
+    "detection_id": 0,
+    "confidence": 0.711757481098175,
+    "coco_label": "bird",
+    "variant": "base",
+    "prompt_id": "prompt_004",
+    "box_requested": [
+      214.64781188964844,
+      342.0386962890625,
+      357.0143127441406,
+      454.998291015625
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_052",
+    "source": "fasterrcnn",
+    "box": [
+      287,
+      198,
+      307,
+      213
+    ],
+    "detection_id": 0,
+    "confidence": 0.8425801992416382,
+    "coco_label": "kite",
+    "variant": "base",
+    "prompt_id": "prompt_005",
+    "box_requested": [
+      287.7215881347656,
+      198.2944793701172,
+      306.84637451171875,
+      212.2211456298828
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_052",
+    "source": "fasterrcnn",
+    "box": [
+      509,
+      48,
+      674,
+      204
+    ],
+    "detection_id": 1,
+    "confidence": 0.7973191738128662,
+    "coco_label": "bird",
+    "variant": "base",
+    "prompt_id": "prompt_006",
+    "box_requested": [
+      509.6327209472656,
+      48.04422378540039,
+      673.12744140625,
+      203.69126892089844
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_030",
+    "source": "fasterrcnn",
+    "box": [
+      27,
+      1,
+      1010,
+      761
+    ],
+    "detection_id": 0,
+    "confidence": 0.8469362258911133,
+    "coco_label": "sink",
+    "variant": "base",
+    "prompt_id": "prompt_007",
+    "box_requested": [
+      27.509340286254883,
+      0.0,
+      1009.704833984375,
+      760.692626953125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_030",
+    "source": "fasterrcnn",
+    "box": [
+      466,
+      296,
+      580,
+      610
+    ],
+    "detection_id": 1,
+    "confidence": 0.7799270749092102,
+    "coco_label": "spoon",
+    "variant": "base",
+    "prompt_id": "prompt_008",
+    "box_requested": [
+      466.7193603515625,
+      296.8616027832031,
+      579.44921875,
+      609.339111328125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_041",
+    "source": "fasterrcnn",
+    "box": [
+      444,
+      194,
+      651,
+      361
+    ],
+    "detection_id": 0,
+    "confidence": 0.7942360639572144,
+    "coco_label": "bird",
+    "variant": "base",
+    "prompt_id": "prompt_009",
+    "box_requested": [
+      444.84747314453125,
+      194.0369110107422,
+      650.3150024414062,
+      360.11993408203125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_041",
+    "source": "fasterrcnn",
+    "box": [
+      94,
+      668,
+      125,
+      692
+    ],
+    "detection_id": 1,
+    "confidence": 0.5211696624755859,
+    "coco_label": "kite",
+    "variant": "base",
+    "prompt_id": "prompt_010",
+    "box_requested": [
+      94.26654052734375,
+      668.8358764648438,
+      124.31932830810547,
+      691.40283203125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_106",
+    "source": "fasterrcnn",
+    "box": [
+      64,
+      82,
+      936,
+      845
+    ],
+    "detection_id": 0,
+    "confidence": 0.9554924368858337,
+    "coco_label": "fire hydrant",
+    "variant": "base",
+    "prompt_id": "prompt_011",
+    "box_requested": [
+      64.71281433105469,
+      82.01239013671875,
+      935.656982421875,
+      844.1104736328125
+    ],
+    "working_width": 1024,
+    "working_height": 902
+  },
+  {
+    "image_id": "img_106",
+    "source": "fasterrcnn",
+    "box": [
+      63,
+      53,
+      970,
+      874
+    ],
+    "detection_id": 1,
+    "confidence": 0.3185836970806122,
+    "coco_label": "toilet",
+    "variant": "base",
+    "prompt_id": "prompt_012",
+    "box_requested": [
+      63.2326545715332,
+      53.279518127441406,
+      969.534423828125,
+      873.2881469726562
+    ],
+    "working_width": 1024,
+    "working_height": 902
+  },
+  {
+    "image_id": "img_100",
+    "source": "fasterrcnn",
+    "box": [
+      60,
+      81,
+      826,
+      955
+    ],
+    "detection_id": 0,
+    "confidence": 0.8954903483390808,
+    "coco_label": "umbrella",
+    "variant": "base",
+    "prompt_id": "prompt_013",
+    "box_requested": [
+      60.410919189453125,
+      81.62079620361328,
+      825.5404663085938,
+      954.40185546875
+    ],
+    "working_width": 890,
+    "working_height": 1024
+  },
+  {
+    "image_id": "img_101",
+    "source": "fasterrcnn",
+    "box": [
+      83,
+      88,
+      905,
+      895
+    ],
+    "detection_id": 0,
+    "confidence": 0.7998143434524536,
+    "coco_label": "person",
+    "variant": "base",
+    "prompt_id": "prompt_014",
+    "box_requested": [
+      83.13616943359375,
+      88.53323364257812,
+      904.6221313476562,
+      894.7637939453125
+    ],
+    "working_width": 966,
+    "working_height": 1024
+  },
+  {
+    "image_id": "img_101",
+    "source": "fasterrcnn",
+    "box": [
+      315,
+      539,
+      728,
+      923
+    ],
+    "detection_id": 1,
+    "confidence": 0.38446876406669617,
+    "coco_label": "snowboard",
+    "variant": "base",
+    "prompt_id": "prompt_015",
+    "box_requested": [
+      315.0044250488281,
+      539.6699829101562,
+      727.5505981445312,
+      922.13818359375
+    ],
+    "working_width": 966,
+    "working_height": 1024
+  },
+  {
+    "image_id": "img_144",
+    "source": "fasterrcnn",
+    "box": [
+      116,
+      254,
+      852,
+      527
+    ],
+    "detection_id": 0,
+    "confidence": 0.6713844537734985,
+    "coco_label": "person",
+    "variant": "base",
+    "prompt_id": "prompt_016",
+    "box_requested": [
+      116.83235168457031,
+      254.4537811279297,
+      851.4581298828125,
+      526.2343139648438
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_144",
+    "source": "fasterrcnn",
+    "box": [
+      482,
+      321,
+      805,
+      525
+    ],
+    "detection_id": 1,
+    "confidence": 0.31421616673469543,
+    "coco_label": "cat",
+    "variant": "base",
+    "prompt_id": "prompt_017",
+    "box_requested": [
+      482.5030212402344,
+      321.1505126953125,
+      804.8345336914062,
+      524.2373657226562
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_145",
+    "source": "fasterrcnn",
+    "box": [
+      158,
+      110,
+      1006,
+      531
+    ],
+    "detection_id": 0,
+    "confidence": 0.5596919655799866,
+    "coco_label": "bird",
+    "variant": "base",
+    "prompt_id": "prompt_018",
+    "box_requested": [
+      158.34642028808594,
+      110.08389282226562,
+      1005.2171020507812,
+      530.7733154296875
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_145",
+    "source": "fasterrcnn",
+    "box": [
+      329,
+      115,
+      1004,
+      439
+    ],
+    "detection_id": 1,
+    "confidence": 0.39571499824523926,
+    "coco_label": "dog",
+    "variant": "base",
+    "prompt_id": "prompt_019",
+    "box_requested": [
+      329.8951721191406,
+      115.4196548461914,
+      1003.9874877929688,
+      438.0158386230469
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_156",
+    "source": "fasterrcnn",
+    "box": [
+      128,
+      72,
+      872,
+      621
+    ],
+    "detection_id": 0,
+    "confidence": 0.6817812323570251,
+    "coco_label": "donut",
+    "variant": "base",
+    "prompt_id": "prompt_020",
+    "box_requested": [
+      128.31011962890625,
+      72.81383514404297,
+      871.2417602539062,
+      620.6571044921875
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_156",
+    "source": "fasterrcnn",
+    "box": [
+      113,
+      78,
+      875,
+      622
+    ],
+    "detection_id": 1,
+    "confidence": 0.5270398855209351,
+    "coco_label": "cake",
+    "variant": "base",
+    "prompt_id": "prompt_021",
+    "box_requested": [
+      113.421630859375,
+      78.63014221191406,
+      874.4048461914062,
+      621.658203125
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      708,
+      510,
+      784,
+      568
+    ],
+    "detection_id": 0,
+    "confidence": 0.6738594174385071,
+    "coco_label": "apple",
+    "variant": "tight_0.75",
+    "prompt_id": "prompt_022",
+    "box_requested": [
+      708.3162536621094,
+      510.4976043701172,
+      783.6291809082031,
+      567.8487091064453
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      683,
+      491,
+      809,
+      587
+    ],
+    "detection_id": 0,
+    "confidence": 0.6738594174385071,
+    "coco_label": "apple",
+    "variant": "loose_1.25",
+    "prompt_id": "prompt_023",
+    "box_requested": [
+      683.2119445800781,
+      491.3805694580078,
+      808.7334899902344,
+      586.9657440185547
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      130,
+      99,
+      894,
+      670
+    ],
+    "detection_id": 1,
+    "confidence": 0.6052122712135315,
+    "coco_label": "sink",
+    "variant": "tight_0.75",
+    "prompt_id": "prompt_024",
+    "box_requested": [
+      130.69976809620857,
+      99.93465906381607,
+      893.6007516086102,
+      669.1922211050987
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_036",
+    "source": "fasterrcnn",
+    "box": [
+      1,
+      1,
+      1023,
+      767
+    ],
+    "detection_id": 1,
+    "confidence": 0.6052122712135315,
+    "coco_label": "sink",
+    "variant": "loose_1.25",
+    "prompt_id": "prompt_025",
+    "box_requested": [
+      -123.60055974125862,
+      -89.81786161661148,
+      1147.9010794460773,
+      858.9447417855263
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_041",
+    "source": "retinanet",
+    "box": [
+      589,
+      479,
+      851,
+      732
+    ],
+    "detection_id": 0,
+    "confidence": 0.49369239807128906,
+    "coco_label": "bird",
+    "variant": "overlap_case",
+    "selection_note": "Post-hoc qualitative case chosen after visual inspection of touching organisms; not part of the base timing summary.",
+    "prompt_id": "prompt_026",
+    "box_requested": [
+      589.1866455078125,
+      479.01153564453125,
+      850.6948852539062,
+      731.6497802734375
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  },
+  {
+    "image_id": "img_041",
+    "source": "fasterrcnn",
+    "box": [
+      588,
+      477,
+      744,
+      673
+    ],
+    "detection_id": 4,
+    "confidence": 0.3933764696121216,
+    "coco_label": "cake",
+    "variant": "overlap_case",
+    "selection_note": "Post-hoc qualitative case chosen after visual inspection of touching organisms; not part of the base timing summary.",
+    "prompt_id": "prompt_027",
+    "box_requested": [
+      588.8805541992188,
+      477.7632751464844,
+      743.7783813476562,
+      672.480712890625
+    ],
+    "working_width": 1024,
+    "working_height": 768
+  }
+]

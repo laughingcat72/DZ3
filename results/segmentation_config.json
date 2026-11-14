@@ -1,0 +1,12 @@
+{
+  "model": "SAM 2.1 Hiera Tiny",
+  "config": "configs/sam2.1/sam2.1_hiera_t.yaml",
+  "checkpoint": "sam2.1_hiera_tiny.pt",
+  "device": "cuda",
+  "precision": "float32",
+  "multimask_output": false,
+  "postprocessing": false,
+  "grabcut_iterations": 5,
+  "repeats": 3,
+  "timing": "GrabCut: CPU, full working image. SAM2: GPU when available, includes set_image encoder for EACH box plus prompt decoder and mask transfer. Image IO/plotting excluded. Encoder can be reused for boxes of the same image."
+}
