@@ -318,7 +318,12 @@ def summarize_detection():
 def environment_record():
     import importlib.metadata as md
     names=['torch','torchvision','numpy','pandas','opencv-python','matplotlib','scipy','Pillow','SAM-2','hydra-core','nbformat','nbclient']
-    packages={n:md.version(n) for n in names if md.packages_distributions()}
+    packages={}
+    for name in names:
+        try:
+            packages[name]=md.version(name)
+        except md.PackageNotFoundError:
+            packages[name]=None
     record=dict(seed=SEED,python=platform.python_version(),platform=platform.platform(),device=DEVICE,
                 gpu=torch.cuda.get_device_name(0) if DEVICE=='cuda' else None,cuda=torch.version.cuda,
                 cpu_threads=torch.get_num_threads(),opencv_threads=cv2.getNumThreads(),packages=packages,
