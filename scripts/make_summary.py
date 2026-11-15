@@ -13,12 +13,13 @@ def make_summary(results_dir):
                          median_ms=x.median_ms,detected_boxes=None,
                          parameters='5 iterations CPU' if x.method=='GrabCut' else 'SAM2.1 Tiny GPU;encoder+decoder;FP32'))
     observations={
-     ('retinanet','original'):'Быстрее; встречаются пропуски мелких объектов и ошибочные COCO-метки.',
-     ('retinanet','augmented'):'При contrast=0.5 меньше рамок; при noise=20 больше рамок, включая ложные большие области.',
-     ('fasterrcnn','original'):'Больше рамок, но встречаются фоновые области почти на весь кадр.',
-     ('fasterrcnn','augmented'):'Сильное размытие/шум снижают сохранность исходных рамок; поворот меняет предсказания.',
-     ('GrabCut','same_22_boxes'):'Чувствителен к размеру рамки; может соединять выступ с фоном и ошибаться на прозрачных краях.',
-     ('SAM2','same_22_boxes'):'В ряде примеров лучше сохраняет форму; неверная большая рамка может выделить фон.'}
+        ('retinanet', 'original'): '72 рамки; на 12 общих полях 2 рамки площадью >=80% кадра; пропуск верхнего организма img_036.',
+        ('retinanet', 'augmented'): 'blur=2: число рамок остаётся 3.00/снимок, сохраняется 60.2%; noise=20 на img_030: 4 из 7 рамок почти на весь кадр.',
+        ('fasterrcnn', 'original'): '96 рамок; на 12 общих полях 13 рамок площадью >=80% кадра; отдельная рамка пары img_041 используется в prompt_027.',
+        ('fasterrcnn', 'augmented'): 'contrast=0.5: 2.46 рамки/снимок и 52.1% сохранения; поворот 90 градусов: 65.2% сохранения.',
+        ('GrabCut', 'same_22_boxes'): 'prompt_011: фон между телом и выступом; prompt_000 -> prompt_022: площадь маски 6009 -> 4081 пикселей.',
+        ('SAM2', 'same_22_boxes'): 'prompt_000 -> prompt_022: 5714 -> 4705 пикселей; prompt_001: ошибочно выделено 96.85% кадра.',
+    }
     for row in rows:row['observed_differences']=observations[(row['method'],row['condition'])]
     frame=pd.DataFrame(rows)
     frame.to_csv(r/'tables/experiment_comparison.csv',index=False)
